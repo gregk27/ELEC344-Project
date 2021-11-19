@@ -18,6 +18,8 @@
             "includePath": [
                 "C:\\ProgramData\\MATLAB\\SupportPackages\\R2019a\\3P.instrset\\arduinoide.instrset\\idepkgs\\packages\\arduino\\hardware\\avr\\1.8.2\\cores\\arduino",
                 "C:\\ProgramData\\MATLAB\\SupportPackages\\R2019a\\3P.instrset\\arduinoide.instrset\\idepkgs\\packages\\arduino\\hardware\\avr\\1.8.2\\variants\\standard",
+                "C:\\Users\\Greg\\Documents\\Arduino\\libraries\\MPU6050\\src",
+                "C:\\ProgramData\\MATLAB\\SupportPackages\\R2019a\\3P.instrset\\arduinoide.instrset\\idepkgs\\packages\\arduino\\hardware\\avr\\1.8.2\\libraries\\Wire\\src",
                 "c:\\programdata\\matlab\\supportpackages\\r2019a\\3p.instrset\\arduinoide.instrset\\idepkgs\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino5\\lib\\gcc\\avr\\7.3.0\\include",
                 "c:\\programdata\\matlab\\supportpackages\\r2019a\\3p.instrset\\arduinoide.instrset\\idepkgs\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino5\\lib\\gcc\\avr\\7.3.0\\include-fixed",
                 "c:\\programdata\\matlab\\supportpackages\\r2019a\\3p.instrset\\arduinoide.instrset\\idepkgs\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino5\\avr\\include"
