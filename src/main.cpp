@@ -24,13 +24,27 @@ void setup(){
     server.on("/raw", handle_getRaw);
 
     server.begin();
+
+    Gyro::init();
 }
 
 void loop(){
     server.handleClient();
+    Gyro::periodic();
 }
 
 void handle_getRaw(){
+    float* ypr = Gyro::getYPR();
+    String json;
+    json += "{";
+    json += "\"yaw:\"";
+    json += ypr[0];
+    json += ",\"pitch:\"";
+    json +=  ypr[1];
+    json += ",\"roll:\"";
+    json += ypr[2];
+    json += "}";
+    server.send(200, "application/json", json);
 }
 
 void handle_getPage(){
