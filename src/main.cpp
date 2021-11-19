@@ -16,11 +16,15 @@ void setup(){
     Serial.begin(9600);
     Serial.println("Hello World");
 
+    if(!SPIFFS.begin())
+        ESP_LOGE(TAG, "SPIFFS begin failed!");
+
     WiFi.softAP(ssid, password);
     Serial.print("Created newtork, IP: ");
     Serial.println(WiFi.localIP());
 
-    server.on("/", handle_getPage);
+    server.serveStatic("/", SPIFFS, "/index.html");
+    server.serveStatic("/main.js", SPIFFS, "/main.js");
     server.on("/raw", handle_getRaw);
 
     server.begin();
@@ -37,16 +41,12 @@ void handle_getRaw(){
     float* ypr = Gyro::getYPR();
     String json;
     json += "{";
-    json += "\"yaw:\"";
+    json += "\"yaw\":";
     json += ypr[0];
-    json += ",\"pitch:\"";
+    json += ",\"pitch\":";
     json +=  ypr[1];
-    json += ",\"roll:\"";
+    json += ",\"roll\":";
     json += ypr[2];
     json += "}";
     server.send(200, "application/json", json);
-}
-
-void handle_getPage(){
-
 }
