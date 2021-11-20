@@ -7,10 +7,15 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+const geometry = new THREE.BoxGeometry(2, 0.5, 4);
+
+const material = new THREE.MeshBasicMaterial( { color: 0x666666 } );
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
+
+var material2 = new THREE.LineBasicMaterial( { color: 0xffffff } );
+var wireframe = new THREE.LineSegments( geometry, material2 );
+scene.add( wireframe );
 
 camera.position.z = 5;
 
@@ -23,6 +28,10 @@ setInterval(async ()=>{
     cube.rotation.x = raw.pitch;
     cube.rotation.y = raw.yaw;
     cube.rotation.z = raw.roll;
+
+    wireframe.rotation.x = raw.pitch;
+    wireframe.rotation.y = raw.yaw;
+    wireframe.rotation.z = raw.roll;
 
     renderer.render( scene, camera );
 }, 40);

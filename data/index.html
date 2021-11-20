@@ -5,13 +5,20 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>ELEC 344 - Gyro</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src="/three.min.js"></script>
+    <style>
+        #controls {
+            display:flex;
+            justify-content: space-around;
+        }
+    </style>
 </head>
 <body>
-    <div>Pitch: <span id="pitch"></span></div><br/>
-    <div>Yaw: <span id="yaw"></span></div><br/>
-    <div>Roll: <span id="roll"></span></div><br/>
+    <div id="controls">
+        <div>Pitch: <span id="pitch"></span></div>
+        <div>Yaw: <span id="yaw"></span></div>
+        <div>Roll: <span id="roll"></span></div>
+    </div>
 </body>
 <script src='main.js'></script>
 </html>

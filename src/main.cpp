@@ -9,7 +9,6 @@ const char* password = "password";
 
 WebServer server(80);
 
-void handle_getPage();
 void handle_getRaw();
 
 void setup(){
@@ -25,6 +24,7 @@ void setup(){
 
     server.serveStatic("/", SPIFFS, "/index.html");
     server.serveStatic("/main.js", SPIFFS, "/main.js");
+    server.serveStatic("/three.min.js", SPIFFS, "/three.min.js");
     server.on("/raw", handle_getRaw);
 
     server.begin();
@@ -42,10 +42,10 @@ void handle_getRaw(){
     String json;
     json += "{";
     json += "\"yaw\":";
-    json += ypr[0];
-    json += ",\"pitch\":";
-    json +=  ypr[1];
+    json += -ypr[0];
     json += ",\"roll\":";
+    json +=  ypr[1];
+    json += ",\"pitch\":";
     json += ypr[2];
     json += "}";
     server.send(200, "application/json", json);
